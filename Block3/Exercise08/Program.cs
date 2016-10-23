@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace Exercise08
+namespace Exercise07
 {
     public class Program
     {
