@@ -8,33 +8,31 @@ namespace Exercise03
     {
         static void Main(string[] args)
         {
-            string webpath;
-            string savepath;
-            string filename;
-            string allPath;
+            string webUrl;
+            string localPath;
+            string fileName;
+            string savingPath;
 
             while (true)
             {
                 try
                 {
                     Console.WriteLine("Please enter a valid URL path:");
-                    webpath = Console.ReadLine();
-                    checkWebPath(webpath);
-
+                    webUrl = Console.ReadLine();
+                    checkWebUrl(webUrl);
+                    
                     Console.WriteLine("Please enter a valid folders path where you want to save the file:");
-                    savepath = Console.ReadLine();
-                    checkSavePath(savepath);
+                    localPath = Console.ReadLine();
+                    checkLocalPath(localPath);
 
                     Console.WriteLine("Please enter a valid name for your file:");
-                    filename = Console.ReadLine();
+                    fileName = Console.ReadLine();
 
-                    allPath = savepath + "\\" + filename;
-
-
+                    savingPath = localPath + "\\" + fileName;
+                    
                     WebClient Client = new WebClient();
-                    Client.DownloadFile(webpath, allPath);
+                    Client.DownloadFile(webUrl, savingPath);
                 }
-
                 catch (System.Exception exc)
                 {
                     Console.WriteLine(exc.Message);
@@ -43,27 +41,25 @@ namespace Exercise03
 
         }
 
-        public static void checkWebPath(string path)
+        public static void checkWebUrl(string url)
         {
             try
             {
                 Uri myUri;
-                Uri.TryCreate(path, UriKind.RelativeOrAbsolute, out myUri);
+                Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out myUri);
             }
-
             catch (System.Exception exc)
             {
                 Console.WriteLine(exc.Message);
             }
         }
 
-        public static void checkSavePath(string path)
+        public static void checkLocalPath(string path)
         {
             try
             {
                 Directory.Exists(path);
             }
-
             catch (System.Exception exc)
             {
                 Console.WriteLine(exc.Message);
