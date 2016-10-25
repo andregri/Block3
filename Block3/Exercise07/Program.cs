@@ -28,7 +28,7 @@ namespace Exercise03
                     Console.WriteLine("Please enter a valid name for your file:");
                     filename = Console.ReadLine();
 
-                    allPath = (@"" + savepath + filename);
+                    allPath = savepath + "\\" + filename;
 
 
                     WebClient Client = new WebClient();
