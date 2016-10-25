@@ -12,20 +12,26 @@ namespace Exercise01
         public static bool GreaterThanNeighbours(int[] array, int index)
         {
             int length = array.Length;
-
+            
             if (length == 1)
             {
                 return true;
             }
             else if (length > 1)
             {
-                if (index == 0 && array[0] > array[1])
+                if (index == 0)
                 {
-                    return true;
+                    if (array[0] > array[1])
+                    {
+                        return true;
+                    }
                 }
-                else if (index == array.Length - 1 && array[index - 1] < array[index])
+                else if (index == length - 1)
                 {
-                    return true;
+                    if (array[index - 1] < array[index])
+                    {
+                        return true;
+                    }
                 }
                 else if (array[index] > array[index - 1] && array[index] > array[index + 1])
                 {
@@ -34,6 +40,21 @@ namespace Exercise01
             }
 
             return false;
+        }
+
+        public static int FirstElementGreaterThanNeighbours(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                bool isGreater = GreaterThanNeighbours(array, i);
+
+                if (isGreater)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
     }
 }
