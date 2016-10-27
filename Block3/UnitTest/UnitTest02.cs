@@ -75,5 +75,37 @@ namespace UnitTest
 
             Assert.AreEqual(0, carry);
         }
+
+        [TestMethod]
+        public void SumDigitsTest_NoCarry()
+        {
+            int size = 56814;
+            int index = 0;
+
+            int[] largeNum1 = Program.GetRandomLargeNumber(size);
+            int[] largeNum2 = Program.GetRandomLargeNumber(size);
+            
+            int result = Program.SumDigits(largeNum1, largeNum2, index);
+            int expected = (largeNum1[index] + largeNum2[index]) % 10;
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void SumDigitsTest_Carry()
+        {
+            int size = 56814;
+            int index = 4587;
+
+            int[] largeNum1 = Program.GetRandomLargeNumber(size);
+            int[] largeNum2 = Program.GetRandomLargeNumber(size);
+
+            int result = Program.SumDigits(largeNum1, largeNum2, index);
+
+            int carry = Program.GetCarry(largeNum1, largeNum2, index - 1);
+            int expected = (largeNum1[index] + largeNum2[index]) % 10 + carry;
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
