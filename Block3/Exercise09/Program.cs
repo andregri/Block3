@@ -3,9 +3,9 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Text;
 
-namespace Exercise03
+namespace Exercise09
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
