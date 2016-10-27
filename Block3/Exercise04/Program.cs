@@ -24,5 +24,25 @@ namespace Exercise04
         static void Main(string[] args)
         {
         }
+
+        public static bool IsWorkingDay(DateTime date)
+        {
+            DayOfWeek day = date.DayOfWeek;
+            if (day == DayOfWeek.Saturday || day == DayOfWeek.Sunday)
+            {
+                return false;
+            }
+
+            int month = date.Month;
+            foreach (DateTime hol in holidays[month - 1])
+            {
+                if (hol.Day == date.Day)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
