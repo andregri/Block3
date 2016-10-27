@@ -156,5 +156,74 @@ namespace UnitTest
 
             Assert.IsTrue(flag);
         }
+
+        [TestMethod]
+        public void SumLargeNumbersTest_SameSizes()
+        {
+            int size = 56814;
+
+            int[] largeNum1 = Program.GetRandomLargeNumber(size);
+            int[] largeNum2 = Program.GetRandomLargeNumber(size);
+
+            int[] result = Program.SumLargeNumbers(largeNum1, largeNum2);
+
+            int[] expected = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                expected[i] = Program.SumDigits(largeNum1, largeNum2, i);
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                Console.WriteLine("i = " + i);
+                Console.WriteLine("largeNum1[i] = " + largeNum1[i]);
+                Console.WriteLine("largeNum2[i] = " + largeNum2[i]);
+                if (i != 0)
+                {
+                    Console.WriteLine("largeNum1[i-1] = " + largeNum1[i - 1]);
+                    Console.WriteLine("largeNum2[i-1] = " + largeNum2[i - 1]);
+                }
+                
+                Assert.AreEqual(expected[i], result[i]);
+            }
+        }
+
+        [TestMethod]
+        public void SumLargeNumbersTest_DifferentSizes()
+        {
+            int size1 = 21865;
+            int[] largeNum1 = Program.GetRandomLargeNumber(size1);
+
+            int size2 = 64873;
+            int[] largeNum2 = Program.GetRandomLargeNumber(size2);
+
+            int[] result = Program.SumLargeNumbers(largeNum1, largeNum2);
+
+            int maxSize = Math.Max(size1, size2);
+            int[] expected = new int[maxSize];
+
+            largeNum1 = Program.ExtendLargeNumber(largeNum1, maxSize);
+            largeNum2 = Program.ExtendLargeNumber(largeNum2, maxSize);
+
+            for (int i = 0; i < maxSize; i++)
+            {
+                expected[i] = Program.SumDigits(largeNum1, largeNum2, i);
+            }
+
+            //check result
+            for (int i = 0; i < maxSize; i++)
+            {
+                Console.WriteLine("i = " + i);
+                Console.WriteLine("largeNum1[i] = " + largeNum1[i]);
+                Console.WriteLine("largeNum2[i] = " + largeNum2[i]);
+                if (i != 0)
+                {
+                    Console.WriteLine("largeNum1[i-1] = " + largeNum1[i - 1]);
+                    Console.WriteLine("largeNum2[i-1] = " + largeNum2[i - 1]);
+                }
+
+                Assert.AreEqual(expected[i], result[i]);
+            }
+        }
     }
 }
