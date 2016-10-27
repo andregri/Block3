@@ -109,7 +109,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void ExtendNumberTest()
+        public void ExtendNumberTest_Larger()
         {
             int oldSize = 35234;
             int newSize = oldSize + 1000;
@@ -127,6 +127,26 @@ namespace UnitTest
             for (int i = oldSize; i < newSize; i++)
             {
                 flag = (extendedNum[i] == 0);
+            }
+
+            Assert.IsTrue(flag);
+        }
+
+        [TestMethod]
+        public void ExtendNumberTest_Smaller()
+        {
+            int oldSize = 35234;
+            int newSize = oldSize - 1000;
+
+            int[] largeNum = Program.GetRandomLargeNumber(oldSize);
+            int[] extendedNum = Program.ExtendLargeNumber(largeNum, newSize);
+
+            bool flag = true;
+
+            //check if the number isn't modified
+            for (int i = 0; i < oldSize; i++)
+            {
+                flag = (largeNum[i] == extendedNum[i]);
             }
 
             Assert.IsTrue(flag);
