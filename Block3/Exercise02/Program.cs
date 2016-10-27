@@ -8,7 +8,7 @@ namespace Exercise02
         {
         }
 
-        public static int[] InitLargeNumber(long size = 10000)
+        public static int[] GetRandomLargeNumber(long size = 10000)
         {
             //the least significant digits is at position 0
             int[] largeNumber = new int[size];
@@ -25,23 +25,25 @@ namespace Exercise02
             return largeNumber;
         }
 
+        public static int GetCarry(int[] firstNumber, int[] secondNumber, long index)
+        {
+            if (index > 0)
+            {
+                return (firstNumber[index] + secondNumber[index]) / 10;
+            }
+
+            return 0;
+        }
+
         public static int SumDigits(int[] firstNumber, int[] secondNumber, long index)
         {
             int sum = 0;
 
-            if (index == 0)
-            {
-                sum = (firstNumber[0] + secondNumber[0]) % 10;
-            }
-            else
-            {
-                sum = (firstNumber[index] + secondNumber[index]) % 10 + (firstNumber[index - 1] + secondNumber[index - 1]) / 10;
-                //truncate digit if it's greater or equal than 10 
-                if (sum >= 10)
-                {
-                    sum %= 10;
-                }
-            }
+            //sum digits
+            sum = (firstNumber[index] + secondNumber[index]) % 10;
+            
+            //add carry
+            sum += Program.GetCarry(firstNumber, secondNumber, index);
 
             return sum;
         }
