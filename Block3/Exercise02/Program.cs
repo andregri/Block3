@@ -48,6 +48,19 @@ namespace Exercise02
             return sum;
         }
 
+        public static int[] ExtendLargeNumber(int[] largeNumber, int newSize)
+        {
+            //extend size of largeNumber adding leading zeroes
+            int[] newNumber = new int[newSize];
+
+            for (int i = 0; i < largeNumber.Length; i++)
+            {
+                newNumber[i] = largeNumber[i];
+            }
+
+            return newNumber;
+        }
+
         public static int[] SumLargeNumbers(int[] firstNumber, int[] secondNumber)
         {
             int length = firstNumber.Length;

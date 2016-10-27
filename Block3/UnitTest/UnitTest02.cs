@@ -103,9 +103,33 @@ namespace UnitTest
             int result = Program.SumDigits(largeNum1, largeNum2, index);
 
             int carry = Program.GetCarry(largeNum1, largeNum2, index - 1);
-            int expected = (largeNum1[index] + largeNum2[index]) % 10 + carry;
+            int expected = ((largeNum1[index] + largeNum2[index]) % 10 + carry) % 10;
 
             Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void ExtendNumberTest()
+        {
+            int oldSize = 35234;
+            int newSize = oldSize + 1000;
+
+            int[] largeNum = Program.GetRandomLargeNumber(oldSize);
+            int[] extendedNum = Program.ExtendLargeNumber(largeNum, newSize);
+
+            bool flag = true;
+
+            for (int i = 0; i < oldSize; i++)
+            {
+                flag = (largeNum[i] == extendedNum[i]);
+            }
+
+            for (int i = oldSize; i < newSize; i++)
+            {
+                flag = (extendedNum[i] == 0);
+            }
+
+            Assert.IsTrue(flag);
         }
     }
 }
