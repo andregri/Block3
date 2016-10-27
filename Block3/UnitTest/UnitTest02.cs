@@ -105,6 +105,11 @@ namespace UnitTest
             int carry = Program.GetCarry(largeNum1, largeNum2, index - 1);
             int expected = ((largeNum1[index] + largeNum2[index]) % 10 + carry) % 10;
 
+            Console.WriteLine("largeNum1[index] = " + largeNum1[index]);
+            Console.WriteLine("largeNum2[index] = " + largeNum2[index]);
+            Console.WriteLine("largeNum1[index-1] = " + largeNum1[index-1]);
+            Console.WriteLine("largeNum2[index-1] = " + largeNum2[index-1]);
+            Console.WriteLine("carry = " + carry);
             Assert.AreEqual(expected, result);
         }
 

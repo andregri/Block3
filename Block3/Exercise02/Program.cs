@@ -43,7 +43,7 @@ namespace Exercise02
             sum = (firstNumber[index] + secondNumber[index]) % 10;
             
             //add carry
-            sum += Program.GetCarry(firstNumber, secondNumber, index);
+            sum += Program.GetCarry(firstNumber, secondNumber, index - 1);
 
             return sum;
         }
