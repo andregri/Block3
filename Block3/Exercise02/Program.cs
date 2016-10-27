@@ -72,6 +72,9 @@ namespace Exercise02
         {
             int length = Math.Max(firstNumber.Length, secondNumber.Length);
 
+            firstNumber = Program.ExtendLargeNumber(firstNumber, length);
+            secondNumber = Program.ExtendLargeNumber(secondNumber, length);
+
             int[] sum = new int[length];
 
             for (int i = 1; i < length; i++)
