@@ -44,5 +44,21 @@ namespace Exercise04
 
             return true;
         }
+
+        //count workdays from the current date to a given date
+        public static int CountWorkingDays(DateTime startDate, DateTime endDate)
+        {
+            int count = 0;
+
+            for(DateTime day = startDate; day.CompareTo(endDate) <= 0; day = day.AddDays(1))
+            {
+                if (IsWorkingDay(day))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        }
     }
 }

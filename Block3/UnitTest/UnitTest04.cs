@@ -40,5 +40,16 @@ namespace UnitTest
 
             Assert.IsTrue(Program.IsWorkingDay(date));
         }
+
+        [TestMethod]
+        public void CountWorkingDaysTest_Week()
+        {
+            DateTime start = new DateTime(2016, 10, 24);
+            DateTime end = start.AddDays(6);
+
+            int workdays = Program.CountWorkingDays(start, end);
+
+            Assert.AreEqual(5, workdays);
+        }
     }
 }
