@@ -77,7 +77,7 @@ namespace Exercise02
 
             int[] sum = new int[length];
 
-            for (int i = 1; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 sum[i] = SumDigits(firstNumber, secondNumber, i);
             }
