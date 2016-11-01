@@ -8,6 +8,43 @@ namespace Exercise02
 
         static void Main(string[] args)
         {
+            long size1 = random.Next(10000, 100000);
+            int[] num1 = GetRandomLargeNumber(size1);
+
+            long size2 = random.Next(10000, 100000);
+            int[] num2 = GetRandomLargeNumber(size2);
+
+            //print first number
+            Console.Write("...");
+            for(int i = 19; i >= 0; i--)
+            {
+                Console.Write("{0,2}", num1[i]);
+            }
+            Console.WriteLine(" +");
+
+            //print second number
+            Console.Write("...");
+            for (int i = 19; i >= 0; i--)
+            {
+                Console.Write("{0,2}", num2[i]);
+            }
+            Console.WriteLine(" =");
+
+            //print a line
+            for (int i = 0; i < 46; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+
+            //print sum
+            int[] sum = SumLargeNumbers(num1, num2);
+            Console.Write("...");
+            for (int i = 19; i >= 0; i--)
+            {
+                Console.Write("{0,2}", sum[i]);
+            }
+            Console.WriteLine("\n");
         }
 
         public static int[] GetRandomLargeNumber(long size = 10000)
