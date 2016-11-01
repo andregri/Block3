@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Globalization;
 
 namespace Exercise04
 {
@@ -23,6 +23,18 @@ namespace Exercise04
 
         static void Main(string[] args)
         {
+            string datePattern = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+            DateTime date;
+            DateTime today = DateTime.Now;
+            string dateStr;
+
+            do
+            {
+                Console.Write("Enter a date " + datePattern + ", please: ");
+                dateStr = Console.ReadLine();
+            } while (!DateTime.TryParse(dateStr, out date) || date.CompareTo(today) <= 0);
+
+            Console.WriteLine("There are {0} working days.", CountWorkingDays(today, date));
         }
 
         public static bool IsWorkingDay(DateTime date)
@@ -50,7 +62,7 @@ namespace Exercise04
         {
             int count = 0;
 
-            for(DateTime day = startDate; day.CompareTo(endDate) <= 0; day = day.AddDays(1))
+            for (DateTime day = startDate; day.Date.CompareTo(endDate.Date) <= 0; day = day.AddDays(1))
             {
                 if (IsWorkingDay(day))
                 {
