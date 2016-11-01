@@ -65,12 +65,23 @@ namespace Exercise02
 
         public static int GetCarry(int[] firstNumber, int[] secondNumber, long index)
         {
-            if (index > 0)
+            int carry = 0;
+
+            if (index >= 0)
             {
-                return (firstNumber[index] + secondNumber[index]) / 10;
+                int sum = firstNumber[index] + secondNumber[index];
+
+                if (sum == 9 && index != 0)
+                {
+                    carry = (sum + GetCarry(firstNumber, secondNumber, index - 1)) / 10;
+                }
+                else
+                {
+                    carry = sum / 10;
+                }
             }
 
-            return 0;
+            return carry;
         }
 
         public static int SumDigits(int[] firstNumber, int[] secondNumber, long index)
@@ -80,10 +91,10 @@ namespace Exercise02
             //sum digits
             sum = firstNumber[index] + secondNumber[index];
 
-            //add carry
-            sum += Program.GetCarry(firstNumber, secondNumber, index - 1);
+            //get carry
+            int carry = Program.GetCarry(firstNumber, secondNumber, index - 1);
 
-            return sum % 10;
+            return (sum + carry) % 10;
         }
 
         public static int[] ExtendLargeNumber(int[] largeNumber, int newSize)
