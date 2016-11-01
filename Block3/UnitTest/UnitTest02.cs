@@ -147,15 +147,8 @@ namespace UnitTest
             int[] largeNum = Program.GetRandomLargeNumber(oldSize);
             int[] extendedNum = Program.ExtendLargeNumber(largeNum, newSize);
 
-            bool flag = true;
-
             //check if the number isn't modified
-            for (int i = 0; i < oldSize; i++)
-            {
-                flag = (largeNum[i] == extendedNum[i]);
-            }
-
-            Assert.IsTrue(flag);
+            CollectionAssert.AreEqual(largeNum, extendedNum);
         }
 
         [TestMethod]
@@ -174,19 +167,7 @@ namespace UnitTest
                 expected[i] = Program.SumDigits(largeNum1, largeNum2, i);
             }
 
-            for (int i = 0; i < size; i++)
-            {
-                Console.WriteLine("i = " + i);
-                Console.WriteLine("largeNum1[i] = " + largeNum1[i]);
-                Console.WriteLine("largeNum2[i] = " + largeNum2[i]);
-                if (i != 0)
-                {
-                    Console.WriteLine("largeNum1[i-1] = " + largeNum1[i - 1]);
-                    Console.WriteLine("largeNum2[i-1] = " + largeNum2[i - 1]);
-                }
-                
-                Assert.AreEqual(expected[i], result[i]);
-            }
+            CollectionAssert.AreEqual(expected, result);
         }
 
         [TestMethod]
@@ -211,20 +192,7 @@ namespace UnitTest
                 expected[i] = Program.SumDigits(largeNum1, largeNum2, i);
             }
 
-            //check result
-            for (int i = 0; i < maxSize; i++)
-            {
-                Console.WriteLine("i = " + i);
-                Console.WriteLine("largeNum1[i] = " + largeNum1[i]);
-                Console.WriteLine("largeNum2[i] = " + largeNum2[i]);
-                if (i != 0)
-                {
-                    Console.WriteLine("largeNum1[i-1] = " + largeNum1[i - 1]);
-                    Console.WriteLine("largeNum2[i-1] = " + largeNum2[i - 1]);
-                }
-
-                Assert.AreEqual(expected[i], result[i]);
-            }
+            CollectionAssert.AreEqual(expected, result);
         }
     }
 }
