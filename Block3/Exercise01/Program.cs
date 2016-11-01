@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace Exercise01
 {
@@ -7,6 +7,35 @@ namespace Exercise01
     {
         static void Main(string[] args)
         {
+            int element;
+            List<int> list = new List<int>();
+
+            Console.WriteLine("Enter array elements separeted by \\n. 'q' to end.");
+            Console.WriteLine("Invalid values will be ignored!");
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                if (Int32.TryParse(input, out element))
+                {
+                    list.Add(element);
+                }
+                else if (input == "q")
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine("Your array is: ");
+            foreach (int e in list)
+            {
+                Console.Write(e + "\t");
+            }
+            Console.WriteLine();
+
+            int position = FirstElementGreaterThanNeighbours(list.ToArray());
+            Console.WriteLine("The position of the first element greater than its neighbour is: " + position);
         }
 
         public static bool GreaterThanNeighbours(int[] array, int index)
