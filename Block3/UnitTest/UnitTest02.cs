@@ -8,7 +8,7 @@ namespace UnitTest
     public class UnitTest02
     {
         [TestMethod]
-        public void GetRandomLargeNumberTest_DifferentFromZero()
+        public void GetRandomLargeNumberTestDifferentFromZero()
         {
             long size = 12546;
             int[] largeNumber = Program.GetRandomLargeNumber(size);
@@ -26,7 +26,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void GetCarryTest_NoCarry()
+        public void GetCarryTestNoCarry()
         {
             int size = 56814;
             int index = 555;
@@ -43,7 +43,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void GetCarryTest_CarryZero()
+        public void GetCarryTestCarry2()
         {
             int size = 56814;
             int index = 555;
@@ -60,7 +60,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void GetCarryTest_FirstDigitsCarryZero()
+        public void GetCarryTestFirstDigitsCarry0()
         {
             int size = 56814;
             int index = 0;
@@ -77,14 +77,14 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void SumDigitsTest_NoCarry()
+        public void SumDigitsTestFirstDigitsNoCarry()
         {
             int size = 56814;
             int index = 0;
 
             int[] largeNum1 = Program.GetRandomLargeNumber(size);
             int[] largeNum2 = Program.GetRandomLargeNumber(size);
-            
+
             int result = Program.SumDigits(largeNum1, largeNum2, index);
             int expected = (largeNum1[index] + largeNum2[index]) % 10;
 
@@ -92,7 +92,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void SumDigitsTest_Carry()
+        public void SumDigitsTestCarry()
         {
             int size = 56814;
             int index = 4587;
@@ -110,11 +110,12 @@ namespace UnitTest
             Console.WriteLine("largeNum1[index-1] = " + largeNum1[index-1]);
             Console.WriteLine("largeNum2[index-1] = " + largeNum2[index-1]);
             Console.WriteLine("carry = " + carry);
+
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
-        public void ExtendNumberTest_Larger()
+        public void ExtendNumberTestLarger()
         {
             int oldSize = 35234;
             int newSize = oldSize + 1000;
@@ -138,7 +139,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void ExtendNumberTest_Smaller()
+        public void ExtendNumberTestSmaller()
         {
             int oldSize = 35234;
             int newSize = oldSize - 1000;
@@ -158,7 +159,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void SumLargeNumbersTest_SameSizes()
+        public void SumLargeNumbersTestSameSizes()
         {
             int size = 56814;
 
@@ -189,7 +190,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void SumLargeNumbersTest_DifferentSizes()
+        public void SumLargeNumbersTestDifferentSizes()
         {
             int size1 = 21865;
             int[] largeNum1 = Program.GetRandomLargeNumber(size1);
