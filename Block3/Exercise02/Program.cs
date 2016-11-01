@@ -4,6 +4,8 @@ namespace Exercise02
 {
     public class Program
     {
+        public static Random random = new Random();
+
         static void Main(string[] args)
         {
         }
@@ -12,7 +14,6 @@ namespace Exercise02
         {
             //the least significant digits is at position 0
             int[] largeNumber = new int[size];
-            Random random = new Random();
 
             for (long i = 0; i < size - 1; i++)
             {
@@ -41,7 +42,7 @@ namespace Exercise02
 
             //sum digits
             sum = (firstNumber[index] + secondNumber[index]) % 10;
-            
+
             //add carry
             sum += Program.GetCarry(firstNumber, secondNumber, index - 1);
 
