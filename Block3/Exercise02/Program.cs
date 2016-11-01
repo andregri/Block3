@@ -78,12 +78,12 @@ namespace Exercise02
             int sum = 0;
 
             //sum digits
-            sum = (firstNumber[index] + secondNumber[index]) % 10;
+            sum = firstNumber[index] + secondNumber[index];
 
             //add carry
             sum += Program.GetCarry(firstNumber, secondNumber, index - 1);
 
-            return sum;
+            return sum % 10;
         }
 
         public static int[] ExtendLargeNumber(int[] largeNumber, int newSize)
