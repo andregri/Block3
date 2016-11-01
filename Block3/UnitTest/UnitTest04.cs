@@ -8,7 +8,7 @@ namespace UnitTest
     public class UnitTest04
     {
         [TestMethod]
-        public void IsWorkingDayTest_PublicHolidays()
+        public void IsWorkingDayTestPublicHolidays()
         {
             foreach (DateTime[] months in Program.holidays)
             {
@@ -20,7 +20,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void IsWorkingDayTest_WeekEnd()
+        public void IsWorkingDayTestWeekEnd()
         {
             string date = "Sunday, October 30, 2016";
             DateTime sunday = DateTime.Parse(date);
@@ -42,7 +42,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void CountWorkingDaysTest_Week()
+        public void CountWorkingDaysTestWeek()
         {
             DateTime start = new DateTime(2016, 10, 24);
             DateTime end = start.AddDays(6);
