@@ -9,16 +9,16 @@ namespace Exercise08
         {
         }
 
-        public static char[] EncryptText(char[] text, char[] chiper)
+        public static ushort[] EncryptText(string text, string chiper)
         {
             long length = text.Length;
-            char[] encrypted = new char[length];
+            ushort[] encrypted = new ushort[length];
 
             for (int i = 0; i < length; i++)
             {
                 ushort t = text[i];
                 ushort c = chiper[i % chiper.Length];
-                encrypted[i] = (char)(t ^ c);
+                encrypted[i] = (ushort)(t ^ c);
             }
 
             return encrypted;
