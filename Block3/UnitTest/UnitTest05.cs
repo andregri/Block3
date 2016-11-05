@@ -7,8 +7,9 @@ namespace UnitTest
     public class UnitTest05
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CheckNumberOfResult()
         {
+
         }
     }
 }
