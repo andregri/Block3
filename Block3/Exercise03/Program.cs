@@ -19,25 +19,20 @@ namespace Exercise03
                 Console.WriteLine("\n");
 
                 //string pathExample =(@"/home/jarvis/Documenti/University");
-                try
+
+                Directory.Exists(path);
+                foreach (string element in DirectorySearch(path))
                 {
-                    Directory.Exists(path);
-                    foreach (string element in DirectorySearch(path))
-                    {
-                        Console.WriteLine(element);
-                    }
+                    Console.WriteLine(element);
                 }
-                catch (System.Exception exc)
-                {
-                    Console.WriteLine(exc.Message);
-                }
+
             }
         }
 
         static string[] DirectorySearch(string dir)
         {
             List<string> elements = new List<string>();
-            
+
             try
             {
                 //  for each folder get all files in
@@ -51,10 +46,10 @@ namespace Exercise03
                     DirectorySearch(directory);
 
                     elements.Add(directory + "\n");
-                }  
+                }
             }
             // using catch to manage read permission denied 
-            catch (System.UnauthorizedAccessException exc)
+            catch (UnauthorizedAccessException exc)
             {
                 Console.WriteLine(exc.Message);
             }
