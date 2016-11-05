@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Security.Permissions;
 
 namespace Exercise03
 {
@@ -16,11 +18,14 @@ namespace Exercise03
                 path = Console.ReadLine();
                 Console.WriteLine("\n");
 
-                //string example =(@"/home/jarvis/Documenti/University");
+                //string pathExample =(@"/home/jarvis/Documenti/University");
                 try
                 {
                     Directory.Exists(path);
-                    DirectorySearch(path);
+                    foreach (string element in DirectorySearch(path))
+                    {
+                        Console.WriteLine(element);
+                    }
                 }
                 catch (System.Exception exc)
                 {
@@ -29,26 +34,29 @@ namespace Exercise03
             }
         }
 
-        static void DirectorySearch(string dir)
+        static string[] DirectorySearch(string dir)
         {
+            List<string> elements = new List<string>();
+            
             try
             {
                 foreach (string file in Directory.GetFiles(dir))
-                    Console.WriteLine(file);
+                    elements.Add(file + "\n");
 
                 foreach (string directory in Directory.GetDirectories(dir))
                 {
-                    //Console.BackgroundColor = ConsoleColor.DarkCyan;
-                    //Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine(directory);
-                    //Console.ResetColor();
                     DirectorySearch(directory);
-                }
+
+                    elements.Add(directory + "\n");
+                }  
             }
-            catch (System.Exception exc)
+            catch (System.UnauthorizedAccessException exc)
             {
                 Console.WriteLine(exc.Message);
             }
+
+            return elements.ToArray();
         }
     }
 }
