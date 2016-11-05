@@ -15,11 +15,9 @@ namespace Exercise03
 
             while (true)
             {
-                try
-                {
+                
                     Console.WriteLine("Please enter a valid URL path:");
                     webUrl = Console.ReadLine();
-                    checkWebUrl(webUrl);
                     
                     Console.WriteLine("Please enter a valid folders path where you want to save the file:");
                     localPath = Console.ReadLine();
@@ -29,11 +27,12 @@ namespace Exercise03
                     fileName = Console.ReadLine();
 
                     savingPath = localPath + "\\" + fileName;
-                    
+                try
+                {
                     WebClient Client = new WebClient();
                     Client.DownloadFile(webUrl, savingPath);
                 }
-                catch (System.Exception exc)
+                catch (WebException exc)
                 {
                     Console.WriteLine(exc.Message);
                 }
@@ -41,29 +40,29 @@ namespace Exercise03
 
         }
 
-        public static void checkWebUrl(string url)
-        {
-            try
-            {
-                Uri myUri;
-                Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out myUri);
-            }
-            catch (System.Exception exc)
-            {
-                Console.WriteLine(exc.Message);
-            }
-        }
-
         public static void checkLocalPath(string path)
         {
             try
             {
-                Directory.Exists(path);
+                Directory.GetDirectories(path);
             }
-            catch (System.Exception exc)
+            catch (UnauthorizedAccessException exc)
             {
                 Console.WriteLine(exc.Message);
             }
+            catch (ArgumentNullException exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
+            catch (PathTooLongException exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
+            catch (IOException exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
+
         }
     }
 }
