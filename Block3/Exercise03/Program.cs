@@ -40,9 +40,11 @@ namespace Exercise03
             
             try
             {
+                //  for each folder get all files in
                 foreach (string file in Directory.GetFiles(dir))
                     elements.Add(file + "\n");
 
+                // slide the entire path and get all folders 
                 foreach (string directory in Directory.GetDirectories(dir))
                 {
                     Console.WriteLine(directory);
@@ -51,6 +53,7 @@ namespace Exercise03
                     elements.Add(directory + "\n");
                 }  
             }
+            // using catch to manage read permission denied 
             catch (System.UnauthorizedAccessException exc)
             {
                 Console.WriteLine(exc.Message);
