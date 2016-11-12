@@ -8,6 +8,26 @@ namespace Exercise06
     {
         static void Main(string[] args)
         {
+            string[] files = { @"..\..\correct.txt", @"..\..\wrong.txt" };
+
+            foreach (string f in files)
+            {
+                Console.WriteLine("Parsing {0}:", f);
+                try
+                {
+                    int[] numbers = ParseFile(f);
+                    foreach (int n in numbers)
+                    {
+                        Console.Write("{0,3}", n);
+                    }
+                }
+                catch (FileParseException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+
+                Console.WriteLine("\n");
+            }
         }
 
         public static int[] ParseFile(string file)
