@@ -2,17 +2,17 @@
 
 namespace Exercise02
 {
-    public class Program
+    public class LargeNumber
     {
         public static Random random = new Random();
 
         static void Main(string[] args)
         {
             long size1 = random.Next(10000, 100000);
-            int[] num1 = GetRandomLargeNumber(size1);
+            int[] num1 = GetRandom(size1);
 
             long size2 = random.Next(10000, 100000);
-            int[] num2 = GetRandomLargeNumber(size2);
+            int[] num2 = GetRandom(size2);
 
             //print first number
             Console.Write("...");
@@ -38,7 +38,7 @@ namespace Exercise02
             Console.WriteLine();
 
             //print sum
-            int[] sum = SumLargeNumbers(num1, num2);
+            int[] sum = Sum(num1, num2);
             Console.Write("...");
             for (int i = 19; i >= 0; i--)
             {
@@ -47,7 +47,7 @@ namespace Exercise02
             Console.WriteLine("\n");
         }
 
-        public static int[] GetRandomLargeNumber(long size = 10000)
+        public static int[] GetRandom(long size = 10000)
         {
             //the least significant digits is at position 0
             int[] largeNumber = new int[size];
@@ -92,12 +92,12 @@ namespace Exercise02
             sum = firstNumber[index] + secondNumber[index];
 
             //get carry
-            int carry = Program.GetCarry(firstNumber, secondNumber, index - 1);
+            int carry = LargeNumber.GetCarry(firstNumber, secondNumber, index - 1);
 
             return (sum + carry) % 10;
         }
 
-        public static int[] ExtendLargeNumber(int[] largeNumber, int newSize)
+        public static int[] Extend(int[] largeNumber, int newSize)
         {
             int oldSize = largeNumber.Length;
 
@@ -117,12 +117,12 @@ namespace Exercise02
             return largeNumber;
         }
 
-        public static int[] SumLargeNumbers(int[] firstNumber, int[] secondNumber)
+        public static int[] Sum(int[] firstNumber, int[] secondNumber)
         {
             int length = Math.Max(firstNumber.Length, secondNumber.Length);
 
-            firstNumber = Program.ExtendLargeNumber(firstNumber, length);
-            secondNumber = Program.ExtendLargeNumber(secondNumber, length);
+            firstNumber = LargeNumber.Extend(firstNumber, length);
+            secondNumber = LargeNumber.Extend(secondNumber, length);
 
             int[] sum = new int[length];
 
