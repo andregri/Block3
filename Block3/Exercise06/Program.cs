@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Exercise06
 {
@@ -9,9 +10,10 @@ namespace Exercise06
         {
         }
 
-        public static void ParseFile(string file)
+        public static int[] ParseFile(string file)
         {
             StreamReader reader = null;
+            List<int> numbers = new List<int>();
             int lineNumber = 1;
 
             try
@@ -22,7 +24,8 @@ namespace Exercise06
 
                     while ((line = reader.ReadLine()) != null)
                     {
-                        int.Parse(line);
+                        int n = int.Parse(line);
+                        numbers.Add(n);
                         lineNumber++;
                     }
                 }
@@ -31,6 +34,8 @@ namespace Exercise06
             {
                 throw new FileParseException(file, lineNumber, e);
             }
+
+            return numbers.ToArray();
         }
     }
 }
