@@ -7,7 +7,10 @@ namespace Exercise06
         private string message;
         public override string Message
         {
-            get;
+            get
+            {
+                return message;
+            }
         }
 
         private string filename;
@@ -60,12 +63,12 @@ namespace Exercise06
         public FileParseException(string filename, int line, Exception inner)
             : this(null, filename, line, inner)
         {
+            this.message = String.Format("Error file: \"{0}\". Expected integer at line {1}.", Filename, Line);
         }
 
         public FileParseException(string filename, int line)
-            : this(null, filename, line, null)
+            : this(filename, line, null)
         {
-            this.message = String.Format("File: {0}. Integer expected at line {0}.", Filename, Line);
         }
     }
 }
