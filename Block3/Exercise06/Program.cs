@@ -12,17 +12,18 @@ namespace Exercise06
         public static void ParseFile(string file)
         {
             StreamReader reader = null;
-            int lineNumber = 0;
+            int lineNumber = 1;
 
             try
             {
                 using (reader = new StreamReader(file))
                 {
-                    string line = reader.ReadLine();
+                    string line;
 
-                    while (line != null)
+                    while ((line = reader.ReadLine()) != null)
                     {
                         int.Parse(line);
+                        lineNumber++;
                     }
                 }
             }
