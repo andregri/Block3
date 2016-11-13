@@ -61,5 +61,16 @@ namespace UnitTest
 
             Program.CountWorkingDays(start, end);
         }
+
+        [TestMethod]
+        public void CountWorkingDaysTestPublicHolidays()
+        {
+            DateTime start = new DateTime(2016, 12, 1);
+            DateTime end = new DateTime(2017, 1, 10);
+
+            int workdays = Program.CountWorkingDays(start, end);
+
+            Assert.AreEqual(26, workdays);
+        }
     }
 }
