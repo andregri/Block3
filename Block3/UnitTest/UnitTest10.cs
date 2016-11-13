@@ -29,8 +29,7 @@ namespace UnitTest
             Assert.AreEqual(1, textDict["apples"]);
             Assert.AreEqual(2, textDict["banana"]);
             Assert.AreEqual(1, textDict["bananas"]);
-            Assert.AreEqual(3, textDict["strawberry"])
-
+            Assert.AreEqual(3, textDict["strawberry"]);
         }
     }
 }
