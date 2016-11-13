@@ -5,7 +5,7 @@ using System.Security.Permissions;
 
 namespace Exercise03
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -33,7 +33,7 @@ namespace Exercise03
             }
         }
 
-        static string[] TraverseFolder(string dir)
+        public static string[] TraverseFolder(string dir)
         {
             List<string> elements = new List<string>();
 
