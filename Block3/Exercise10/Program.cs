@@ -19,7 +19,6 @@ namespace Exercise10
                 foreach (var word in dictionary.OrderBy(value => value.Key))
                 {
                     Console.WriteLine("{0,-20}{1}", word.Key, word.Value);
-
                 }
 
             } while (userInput != "q");
@@ -29,8 +28,8 @@ namespace Exercise10
         {
             SortedDictionary<string, int> dict = new SortedDictionary<string, int>();
 
-            string[] stringSeparators = new string[] { " " };
-            string[] key = input.Split(stringSeparators, StringSplitOptions.None);
+            string[] stringSeparators = new string[] { " ", ",", ".", ";", ":", "\n"};
+            string[] key = input.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string element in key)
             {
