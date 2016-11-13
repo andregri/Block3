@@ -17,7 +17,6 @@ namespace UnitTest
             string[] output = System.IO.File.ReadAllLines(path + @"\Output.txt");
 
             CollectionAssert.AreEqual(expected, output);
-
         }
     }
 }
