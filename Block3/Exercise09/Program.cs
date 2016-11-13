@@ -14,16 +14,15 @@ namespace Exercise09
 
             while (true)
             {
-                try
-                {
+                
                     Console.WriteLine("Please enter a valid folders path where you want to read input file:");
                     filePath = Console.ReadLine();
-                    checkSavePath(filePath);
 
                     Console.WriteLine("Please enter a valid folders path where you want to save the file:");
                     savepath = Console.ReadLine();
-                    checkSavePath(savepath);
 
+                try
+                {
                     ExtractEmails(filePath, savepath);
                 }
 
@@ -56,19 +55,6 @@ namespace Exercise09
 
             //store to file
             File.WriteAllText(outFilePath, sb.ToString());
-        }
-
-        public static void checkSavePath(string path)
-        {
-            try
-            {
-                Directory.Exists(path);
-            }
-
-            catch (System.Exception exc)
-            {
-                Console.WriteLine(exc.Message);
-            }
         }
     }
 }
