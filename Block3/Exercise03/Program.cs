@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Security.Permissions;
 
 namespace Exercise03
 {
@@ -9,27 +8,17 @@ namespace Exercise03
     {
         static void Main(string[] args)
         {
-            string path;
-
             while (true)
             {
-
                 Console.WriteLine("Please enter a valid path:");
-                path = Console.ReadLine();
+                string path = Console.ReadLine();
                 Console.WriteLine("\n");
-
-                //string pathExample =(@"/home/jarvis/Documenti/University");
 
                 Directory.Exists(path);
                 foreach (string element in TraverseFolder(path))
                 {
-                    /*if (element.EndsWith(@"\"))
-                    {
-                        Console.WriteLine();
-                    }*/
                     Console.WriteLine(element);
                 }
-
             }
         }
 

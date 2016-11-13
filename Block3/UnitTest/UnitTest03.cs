@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Exercise03;
 
 namespace UnitTest
@@ -17,8 +16,6 @@ namespace UnitTest
                                 path + @"\Test2\", path + @"\Test2\TestFile2.txt" };
 
             CollectionAssert.AreEqual(expected, filesAndFolders);
-
-
         }
     }
 }
