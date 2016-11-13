@@ -30,13 +30,24 @@ namespace Exercise04
 
             Console.WriteLine("This program counts the working days starting from today: {0:dd/MM/yyyy}", today);
 
-            do
+            Console.Write("Please, enter a future date in the format " + datePattern + ": ");
+
+            dateStr = Console.ReadLine();
+            while (!DateTime.TryParse(dateStr, out date))
             {
+                Console.WriteLine("Input date has not a valid format.\n");
                 Console.Write("Please, enter a future date in the format " + datePattern + ": ");
                 dateStr = Console.ReadLine();
-            } while (!DateTime.TryParse(dateStr, out date) || date.CompareTo(today) <= 0);
+            }
 
-            Console.WriteLine("There are {0} working days.", CountWorkingDays(today, date));
+            try
+            {
+                Console.WriteLine("There are {0} working days.", CountWorkingDays(today, date));
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public static bool IsWorkingDay(DateTime date)
@@ -60,11 +71,16 @@ namespace Exercise04
         }
 
         //count workdays from the current date to a given date
-        public static int CountWorkingDays(DateTime startDate, DateTime endDate)
+        public static int CountWorkingDays(DateTime start, DateTime end)
         {
             int count = 0;
 
-            for (DateTime day = startDate; day.Date.CompareTo(endDate.Date) <= 0; day = day.AddDays(1))
+            if (end.CompareTo(start) <= 0)
+            {
+                throw new ArgumentException("End date could not be before the start date.");
+            }
+
+            for (DateTime day = start; day.Date.CompareTo(end.Date) <= 0; day = day.AddDays(1))
             {
                 if (IsWorkingDay(day))
                 {

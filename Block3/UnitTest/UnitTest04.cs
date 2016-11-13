@@ -51,5 +51,15 @@ namespace UnitTest
 
             Assert.AreEqual(5, workdays);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CountWorkingDaysTestInvalidEndDate()
+        {
+            DateTime end = DateTime.Now;
+            DateTime start = end.AddDays(3);
+
+            Program.CountWorkingDays(start, end);
+        }
     }
 }
