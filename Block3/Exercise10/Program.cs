@@ -14,30 +14,32 @@ namespace Exercise10
             {
                 Console.Write("Enter a string (press 'q' to exit):  ");
                 userInput = Console.ReadLine();
-                CountingLetters(userInput);
+                var dictionary = CountingWords(userInput);
+
+                foreach (var word in dictionary.OrderBy(value => value.Key))
+                {
+                    Console.WriteLine("{0,-20}{1}", word.Key, word.Value);
+
+                }
 
             } while (userInput != "q");
 
         }
-        public static void CountingLetters(string input)
+        public static SortedDictionary<string, int> CountingWords(string input)
         {
-            SortedDictionary<char, int> dict = new SortedDictionary<char, int>();
+            SortedDictionary<string, int> dict = new SortedDictionary<string, int>();
 
-            for (int index = 0; index < input.Length; index++)
+            string[] stringSeparators = new string[] { " " };
+            string[] key = input.Split(stringSeparators, StringSplitOptions.None);
+
+            foreach (string element in key)
             {
-                char key = input[index];
-
-                if (!dict.ContainsKey(key))
-                    dict.Add(key, 1);
+                if (!dict.ContainsKey(element))
+                    dict.Add(element, 1);
                 else
-                    dict[input[index]]++;
+                    dict[element]++;
             }
-
-            foreach (var key in dict.OrderByDescending(value => value.Value).Take(315))
-            {
-                Console.WriteLine("{0}\t{1}", key.Key, key.Value);
-
-            }
+            return dict;
         }
     }
 }
