@@ -3,7 +3,7 @@
 
 namespace Exercise02
 {
-    public class Program
+    public class LargeNumber
     {
         static void Main(string[] args)
         {
