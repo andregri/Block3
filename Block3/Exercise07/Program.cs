@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace Exercise03
+namespace Exercise07
 {
     class Program
     {
