@@ -28,7 +28,7 @@ namespace Exercise10
         {
             SortedDictionary<string, int> dict = new SortedDictionary<string, int>();
 
-            string[] stringSeparators = new string[] { " ", ",", ".", ";", ":", "\n"};
+            string[] stringSeparators = new string[] { " ", ",", ".", ";", ":", "\n" };
             string[] key = input.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string element in key)

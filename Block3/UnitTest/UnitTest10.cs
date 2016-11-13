@@ -12,12 +12,11 @@ namespace UnitTest
         [TestMethod]
         public void ShortLenghtString()
         {
-            string text = "apple banana apple" ;
-            SortedDictionary<string, int> textDict = Program.CountingWords(text);           
+            string text = "apple banana apple";
+            SortedDictionary<string, int> textDict = Program.CountingWords(text);
 
             Assert.AreEqual(2, textDict["apple"]);
             Assert.AreEqual(1, textDict["banana"]);
-
         }
 
         [TestMethod]
@@ -30,7 +29,7 @@ namespace UnitTest
             Assert.AreEqual(1, textDict["apples"]);
             Assert.AreEqual(2, textDict["banana"]);
             Assert.AreEqual(1, textDict["bananas"]);
-            Assert.AreEqual(3, textDict["strawberry"]);
+            Assert.AreEqual(3, textDict["strawberry"])
 
         }
     }
