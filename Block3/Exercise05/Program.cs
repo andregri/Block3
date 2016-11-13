@@ -5,13 +5,13 @@ namespace Exercise05
 {
     public class Program
     {
-        private static string[] laudatoryPhrases = {"The product is excellent.", "This is a great product.", "I use this product constantly.",
+        public static string[] laudatoryPhrases = {"The product is excellent.", "This is a great product.", "I use this product constantly.",
                                                     "This is the best product from this category." };
-        private static string[] laudatoryStories = { "Now I feel better.", "I managed to change.", "It made some miracle.",
+        public static string[] laudatoryStories = { "Now I feel better.", "I managed to change.", "It made some miracle.",
                                                     "I can’t believe it, but now I am feeling great.", "You should try it, too. I am very satisfied."};
-        private static string[] authorsNames = { "Dayan", "Stella", "Hellen", "Kate" };
-        private static string[] authorsLastNames = { "Johnson", "Peterson", "Charles" };
-        private static string[] cities = { "London", "Paris", "Berlin", "New York", "Madrid" };
+        public static string[] authorsNames = { "Dayan", "Stella", "Hellen", "Kate" };
+        public static string[] authorsLastNames = { "Johnson", "Peterson", "Charles" };
+        public static string[] cities = { "London", "Paris", "Berlin", "New York", "Madrid" };
 
         static string laudatoryPhrase;
         static string laudatoryStory;
