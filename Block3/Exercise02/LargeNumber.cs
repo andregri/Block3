@@ -8,6 +8,10 @@ namespace Exercise02
     {
         private static Random rand = new Random();
 
+        static void Main(string[] args)
+        {
+        }
+
         public static string Random(long size)
         {
             StringBuilder num = new StringBuilder();
