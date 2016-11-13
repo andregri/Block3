@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Exercise02;
+using System.Numerics;
 
 namespace UnitTest
 {
@@ -59,6 +60,34 @@ namespace UnitTest
             string result = LargeNumber.Sum(Reverse(a), Reverse(b));
 
             Assert.AreEqual(expected, Reverse(result));
+        }
+
+        [TestMethod]
+        public void SumTestSize10000()
+        {
+            string num1 = LargeNumber.Random(10000);
+            string num2 = LargeNumber.Random(10000);
+            string result = LargeNumber.Sum(num1, num2);
+
+            BigInteger bigNum1 = BigInteger.Parse(Reverse(num1));
+            BigInteger bigNum2 = BigInteger.Parse(Reverse(num2));
+            BigInteger expected = bigNum1 + bigNum2;
+
+            Assert.AreEqual(expected.ToString(), Reverse(result));
+        }
+
+        [TestMethod]
+        public void SumTestSize100000()
+        {
+            string num1 = LargeNumber.Random(100000);
+            string num2 = LargeNumber.Random(100000);
+            string result = LargeNumber.Sum(num1, num2);
+
+            BigInteger bigNum1 = BigInteger.Parse(Reverse(num1));
+            BigInteger bigNum2 = BigInteger.Parse(Reverse(num2));
+            BigInteger expected = bigNum1 + bigNum2;
+
+            Assert.AreEqual(expected.ToString(), Reverse(result));
         }
     }
 }

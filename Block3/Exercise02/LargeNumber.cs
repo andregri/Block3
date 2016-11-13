@@ -3,6 +3,7 @@ using System.Text;
 
 namespace Exercise02
 {
+    //the least significant digit is at index 0
     public class LargeNumber
     {
         private static Random rand = new Random();
