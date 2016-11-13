@@ -23,10 +23,10 @@ namespace Exercise03
                 Directory.Exists(path);
                 foreach (string element in TraverseFolder(path))
                 {
-                    if (element.EndsWith("\\"))
+                    /*if (element.EndsWith(@"\"))
                     {
                         Console.WriteLine();
-                    }
+                    }*/
                     Console.WriteLine(element);
                 }
 
