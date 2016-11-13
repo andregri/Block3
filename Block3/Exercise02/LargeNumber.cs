@@ -5,8 +5,24 @@ namespace Exercise02
 {
     public class LargeNumber
     {
+        private static Random rand = new Random();
+
         static void Main(string[] args)
         {
+        }
+
+        public static string Random(long size)
+        {
+            StringBuilder num = new StringBuilder();
+
+            for (int i = 0; i < size - 1; i++)
+            {
+                num.Append(rand.Next(0, 10));
+            }
+
+            num.Append(rand.Next(1, 10));
+
+            return num.ToString();
         }
 
         // if 'num' is smaller than 'newSize', add a padding of zeroes to 'num';

@@ -14,6 +14,16 @@ namespace UnitTest
             return new string(charArray);
         }
 
+        //test random
+        [TestMethod]
+        public void RandomTest()
+        {
+            string num1 = LargeNumber.Random(10000);
+            string num2 = LargeNumber.Random(10000);
+
+            Assert.IsFalse(num1 == num2);
+        }
+
         //test extend
         [TestMethod]
         public void ExtendTestGreater()
