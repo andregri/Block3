@@ -21,7 +21,7 @@ namespace Exercise03
                 //string pathExample =(@"/home/jarvis/Documenti/University");
 
                 Directory.Exists(path);
-                foreach (string element in DirectorySearch(path))
+                foreach (string element in TraverseFolder(path))
                 {
                     Console.WriteLine(element);
                 }
@@ -29,23 +29,21 @@ namespace Exercise03
             }
         }
 
-        static string[] DirectorySearch(string dir)
+        static string[] TraverseFolder(string dir)
         {
             List<string> elements = new List<string>();
 
             try
             {
-                //  for each folder get all files in
+                // for each folder get all files in
                 foreach (string file in Directory.GetFiles(dir))
-                    elements.Add(file + "\n");
+                    elements.Add(file);
 
                 // slide the entire path and get all folders 
                 foreach (string directory in Directory.GetDirectories(dir))
                 {
-                    Console.WriteLine(directory);
-                    DirectorySearch(directory);
-
-                    elements.Add(directory + "\n");
+                    elements.Add(directory);
+                    elements.AddRange(TraverseFolder(directory));
                 }
             }
             // using catch to manage read permission denied 
