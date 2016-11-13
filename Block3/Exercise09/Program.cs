@@ -25,12 +25,10 @@ namespace Exercise09
                 {
                     ExtractEmails(filePath, savepath);
                 }
-
                 catch (System.Exception exc)
                 {
                     Console.WriteLine(exc.Message);
                 }
-
             }
         }
 
