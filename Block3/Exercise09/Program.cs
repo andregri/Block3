@@ -14,12 +14,12 @@ namespace Exercise09
 
             while (true)
             {
-                
-                    Console.WriteLine("Please enter a valid folders path where you want to read input file:");
-                    filePath = Console.ReadLine();
 
-                    Console.WriteLine("Please enter a valid folders path where you want to save the file:");
-                    savepath = Console.ReadLine();
+                Console.WriteLine("Please enter a valid folders path where you want to read input file:");
+                filePath = Console.ReadLine();
+
+                Console.WriteLine("Please enter a valid folders path where you want to save the file:");
+                savepath = Console.ReadLine();
 
                 try
                 {
