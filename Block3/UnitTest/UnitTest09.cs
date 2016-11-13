@@ -13,7 +13,7 @@ namespace UnitTest
         public void CheckingEmailFromInputText()
         {
             Program.ExtractEmails(path + @"\Input.txt", path + @"\Output.txt");
-            string[] expected = { "example@gmail.com", "test.user@yahoo.co.uk" , "a@a.b" };
+            string[] expected = { "example@gmail.com", "test.user@yahoo.co.uk" };
             string[] output = System.IO.File.ReadAllLines(path + @"\Output.txt");
 
             CollectionAssert.AreEqual(expected, output);

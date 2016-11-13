@@ -38,7 +38,7 @@ namespace Exercise09
         {
             //read File 
             string data = File.ReadAllText(inFilePath);
-            string pattern = (@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+            string pattern = (@"\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w{2,}([-.]\w{2,})*");
 
             //instantiate with this pattern 
             Regex emailRegex = new Regex(pattern, RegexOptions.IgnoreCase);

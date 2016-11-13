@@ -1,3 +1,2 @@
 example@gmail.com
 test.user@yahoo.co.uk
-a@a.b
