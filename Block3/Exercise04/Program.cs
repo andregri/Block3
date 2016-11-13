@@ -28,9 +28,11 @@ namespace Exercise04
             DateTime today = DateTime.Now;
             string dateStr;
 
+            Console.WriteLine("This program counts the working days starting from today: {0:dd/MM/yyyy}", today);
+
             do
             {
-                Console.Write("Enter a date " + datePattern + ", please: ");
+                Console.Write("Please, enter a future date in the format " + datePattern + ": ");
                 dateStr = Console.ReadLine();
             } while (!DateTime.TryParse(dateStr, out date) || date.CompareTo(today) <= 0);
 
