@@ -41,7 +41,7 @@ namespace Exercise01
         public static bool GreaterThanNeighbours(int[] array, int index)
         {
             int length = array.Length;
-            
+
             if (length == 1)
             {
                 return true;
