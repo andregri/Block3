@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text;
 
 namespace Exercise05
 {
@@ -13,12 +13,7 @@ namespace Exercise05
         public static string[] authorsLastNames = { "Johnson", "Peterson", "Charles" };
         public static string[] cities = { "London", "Paris", "Berlin", "New York", "Madrid" };
 
-        static string laudatoryPhrase;
-        static string laudatoryStory;
-        static string authorName;
-        static string authroLastName;
-        static string city;
-        static string Message;
+        private static Random random = new Random();
 
         static void Main(string[] args)
         {
@@ -35,14 +30,17 @@ namespace Exercise05
 
         public static string GenerateRandomAdvertisingMessage()
         {
-            laudatoryPhrase = laudatoryPhrases[new Random().Next(0, laudatoryPhrases.Length)];
-            laudatoryStory = laudatoryStories[new Random().Next(0, laudatoryStories.Length)];
-            authorName = authorsNames[new Random().Next(0, authorsNames.Length)];
-            authroLastName = authorsLastNames[new Random().Next(0, authorsLastNames.Length)];
-            city = cities[new Random().Next(0, cities.Length)];
-            Message = laudatoryPhrase + " " + laudatoryStory + " -- " + authorName + " " + authroLastName + " " + city;
+            string laudatoryPhrase = laudatoryPhrases[random.Next(0, laudatoryPhrases.Length)];
+            string laudatoryStory = laudatoryStories[random.Next(0, laudatoryStories.Length)];
+            string authorName = authorsNames[random.Next(0, authorsNames.Length)];
+            string authorLastName = authorsLastNames[random.Next(0, authorsLastNames.Length)];
+            string city = cities[random.Next(0, cities.Length)];
 
-            return Message;
+            StringBuilder message = new StringBuilder();
+            message.Append(laudatoryPhrase).Append(" ").Append(laudatoryStory).Append(" -- ")
+                .Append(authorName).Append(" ").Append(authorLastName).Append(", ").Append(city);
+
+            return message.ToString();
         }
     }
 }
