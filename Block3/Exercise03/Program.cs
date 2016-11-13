@@ -23,6 +23,10 @@ namespace Exercise03
                 Directory.Exists(path);
                 foreach (string element in TraverseFolder(path))
                 {
+                    if (element.EndsWith("\\"))
+                    {
+                        Console.WriteLine();
+                    }
                     Console.WriteLine(element);
                 }
 
@@ -42,7 +46,7 @@ namespace Exercise03
                 // slide the entire path and get all folders 
                 foreach (string directory in Directory.GetDirectories(dir))
                 {
-                    elements.Add(directory);
+                    elements.Add(directory + "\\");
                     elements.AddRange(TraverseFolder(directory));
                 }
             }
