@@ -4,7 +4,7 @@ using System.Net;
 
 namespace Exercise07
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -15,31 +15,38 @@ namespace Exercise07
 
             while (true)
             {
-                
-                    Console.WriteLine("Please enter a valid URL path:");
-                    webUrl = Console.ReadLine();
-                    
-                    Console.WriteLine("Please enter a valid folders path where you want to save the file:");
-                    localPath = Console.ReadLine();
-                    checkLocalPath(localPath);
 
-                    Console.WriteLine("Please enter a valid name for your file:");
-                    fileName = Console.ReadLine();
+                Console.WriteLine("Please enter a valid URL path:");
+                webUrl = Console.ReadLine();
 
-                    savingPath = localPath + "\\" + fileName;
+                Console.WriteLine("Please enter a valid folders path where you want to save the file:");
+                localPath = Console.ReadLine();
+                checkLocalPath(localPath);
+
+                Console.WriteLine("Please enter a valid name for your file:");
+                fileName = Console.ReadLine();
+
+                savingPath = localPath + "\\" + fileName;
                 try
                 {
-                    WebClient Client = new WebClient();
-                    Client.DownloadFile(webUrl, savingPath);
+                    DownloadFile(webUrl, savingPath);
                 }
                 catch (WebException exc)
                 {
                     Console.WriteLine(exc.Message);
                 }
+
             }
 
         }
 
+        public static void DownloadFile(string url, string path)
+        {
+
+            WebClient Client = new WebClient();
+            Client.DownloadFile(url, path);
+
+        }
         public static void checkLocalPath(string path)
         {
             try
