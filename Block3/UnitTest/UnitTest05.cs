@@ -13,7 +13,7 @@ namespace UnitTest
             string firstPhrase = Program.GenerateRandomAdvertisingMessage();
             string secondPhrase = Program.GenerateRandomAdvertisingMessage();
 
-            Assert.AreNotEqual(false, firstPhrase, secondPhrase);
+            Assert.AreNotEqual(firstPhrase, secondPhrase);
         }
 
         private bool Contain(string str, string[] array)
