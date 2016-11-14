@@ -11,6 +11,43 @@ namespace Exercise02
 
         static void Main(string[] args)
         {
+            int size1 = rand.Next(30, 10000);
+            string num1 = Random(size1);
+
+            int size2 = rand.Next(30, 10000);
+            string num2 = Random(size2);
+
+            //print first number
+            Console.Write("...");
+            for (int i = 19; i >= 0; i--)
+            {
+                Console.Write("{0,2}", num1[i]);
+            }
+            Console.WriteLine(" +");
+
+            //print second number
+            Console.Write("...");
+            for (int i = 19; i >= 0; i--)
+            {
+                Console.Write("{0,2}", num2[i]);
+            }
+            Console.WriteLine(" =");
+
+            //print a line
+            for (int i = 0; i < 46; i++)
+            {
+                Console.Write("-");
+            }
+            Console.WriteLine();
+
+            //print sum
+            string sum = Sum(num1, num2);
+            Console.Write("...");
+            for (int i = 19; i >= 0; i--)
+            {
+                Console.Write("{0,2}", sum[i]);
+            }
+            Console.WriteLine("\n");
         }
 
         public static string Random(int size)
