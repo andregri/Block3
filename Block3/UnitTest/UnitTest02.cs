@@ -19,8 +19,8 @@ namespace UnitTest
         [TestMethod]
         public void RandomTest()
         {
-            string num1 = LargeNumber.Random(10000);
-            string num2 = LargeNumber.Random(10000);
+            string num1 = LargeNumber.Random(1000);
+            string num2 = LargeNumber.Random(1000);
 
             Assert.IsFalse(num1 == num2);
         }
@@ -77,10 +77,10 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void SumTestSize100000()
+        public void SumTestSize1000()
         {
-            string num1 = LargeNumber.Random(100000);
-            string num2 = LargeNumber.Random(100000);
+            string num1 = LargeNumber.Random(1000);
+            string num2 = LargeNumber.Random(1000);
             string result = LargeNumber.Sum(num1, num2);
 
             BigInteger bigNum1 = BigInteger.Parse(Reverse(num1));
