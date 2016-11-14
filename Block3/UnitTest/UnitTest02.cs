@@ -30,7 +30,7 @@ namespace UnitTest
         public void ExtendTestGreater()
         {
             string num = "465465";
-            long size = 10;
+            int size = 10;
 
             string newNum = LargeNumber.Extend(num, size);
             string expected = "4654650000";
@@ -42,7 +42,7 @@ namespace UnitTest
         public void ExtendTestSmaller()
         {
             string num = "76434";
-            long size = 3;
+            int size = 3;
 
             string newNum = LargeNumber.Extend(num, size);
 
