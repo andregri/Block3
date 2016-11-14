@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Exercise05;
 
 namespace UnitTest
 {
@@ -7,9 +8,13 @@ namespace UnitTest
     public class UnitTest05
     {
         [TestMethod]
-        public void CheckNumberOfResult()
+        public void AreDifferent()
         {
+            string firstPhrase = Program.GenerateRandomAdvertisingMessage();
+            string secondPhrase = Program.GenerateRandomAdvertisingMessage();
 
+            Assert.AreNotEqual(false, firstPhrase, secondPhrase);
         }
+
     }
 }
