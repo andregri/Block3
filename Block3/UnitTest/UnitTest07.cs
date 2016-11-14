@@ -9,13 +9,13 @@ namespace UnitTest
     public class UnitTest07
     {
         public string path = @"..\..\..\Exercise07\TestPurpose\";
+        public string webUrl = "http://www.consulenteweb.it/wp-content/uploads/2015/09/c.png";
 
         // Remember to delete the image in TestPurpose folder in order to correctly 
         // verify that this test works
         [TestMethod]
         public void CheckingDownloadValidity()
         {
-            string webUrl = "http://www.consulenteweb.it/wp-content/uploads/2015/09/c.png";
             string fileName = "image_test.png";
             Program.DownloadFile(webUrl, path + fileName);
 
@@ -23,5 +23,24 @@ namespace UnitTest
 
             Assert.IsTrue(expected);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void DownloadFileTestArgumentNull()
+        {
+            Program.DownloadFile(null, null);
+        }
+
+        /*[TestMethod]
+        [ExpectedException(typeof(PathTooLongException))]
+        public void DownloadFileTestPathTooLong()
+        {
+            System.IO.StreamReader file = new System.IO.StreamReader(path + "PathTooLongTest.txt");
+            string longPath = file.ReadLine();
+
+            Program.DownloadFile(webUrl, longPath);
+        }
+        */
+
     }
 }
