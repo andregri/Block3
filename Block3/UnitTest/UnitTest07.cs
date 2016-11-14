@@ -30,17 +30,5 @@ namespace UnitTest
         {
             Program.DownloadFile(null, null);
         }
-
-        /*[TestMethod]
-        [ExpectedException(typeof(PathTooLongException))]
-        public void DownloadFileTestPathTooLong()
-        {
-            System.IO.StreamReader file = new System.IO.StreamReader(path + "PathTooLongTest.txt");
-            string longPath = file.ReadLine();
-
-            Program.DownloadFile(webUrl, longPath);
-        }
-        */
-
     }
 }
